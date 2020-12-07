@@ -13,15 +13,8 @@ Function to compare the 2 plays and determine the winner
 def comparar_jogadas(jog1,jog2):
 	if jog1 == jog2: return "Empate"
 	else:
-		if jog1 == 0:
-			if jog2 == 2: return "Venceu"
-			else: return "Perdeu"
-		if jog1 == 1:
-			if jog2 == 0: return "Venceu"
-			else: return "Perdeu"
-		if jog1 == 2:
-			if jog2 == 1: return "Venceu"
-			else: return "Perdeu"
+		if (jog1 == 0 and jog2 == 2) or (jog1 == 1 and jog2 == 0) or (jog1 == 2 and jog2 == 1): return "Venceu"
+		else: return "Perdeu"
 
 """
 Modo de partidas infinitas que corre até o Ninja escolher a opção de sair(3)
@@ -38,8 +31,8 @@ def modo_1():
 		if jogNinja == 3: quit()
 		else: jogMaquina = random.choice(range(3))
 		
-		print("\nNinja jogou:", jogadas[jogNinja-1])
-		print("\nMaquina jogou:", jogadas[jogMaquina-1])
+		print("\nNinja jogou:", jogadas[jogNinja])
+		print("\nMaquina jogou:", jogadas[jogMaquina])
 		resp = comparar_jogadas(jogNinja,jogMaquina)
 		print(resp)
 
